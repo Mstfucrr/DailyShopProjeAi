@@ -5,7 +5,7 @@ from flask_cors import CORS
 import pandas as pd
 
 from DataPull import get_products_by_category_id_data
-from tempCodeRunnerFile import fiyat_tahmini
+from ml import fiyat_tahmini
 
 app = Flask(__name__)
 CORS(app, resources={r"/get_quote": {"origins": "http://localhost:5173"}}, supports_credentials=True)
