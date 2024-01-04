@@ -1,13 +1,11 @@
 import pandas as pd
-import numpy as np
-from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import LabelEncoder , StandardScaler
 from sklearn.linear_model import LinearRegression
 
 def fiyat_tahmini(user_input):
     print("user_input", user_input)
     # CSV dosyasını oku
-    df = pd.read_csv('data.csv')
+    df = pd.read_csv('products.csv')
 
     # Gerekli sütunları seç
     data_selected = df[['price', 'status']]
@@ -41,10 +39,12 @@ def fiyat_tahmini(user_input):
     # Tahmini ölçeklendirmeyi geri al
     tahmin = sc.inverse_transform(tahmin)
 
-    print("tahmin", tahmin)
+    # Tahminin güven aralığını hesapla (örneğin standart sapma kullanarak)
+    tahmin_std = model.predict(X).std()
+    min_tahmin = tahmin - 1.96 * tahmin_std  # %95 güven aralığı için
+    max_tahmin = tahmin + 1.96 * tahmin_std
 
-    return tahmin[0][0]
-
+    return [min_tahmin[0][0], max_tahmin[0][0]]
 
 # # Örnek kullanıcı girişi
 # kullanici_girisi = {
