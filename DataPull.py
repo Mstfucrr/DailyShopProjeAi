@@ -10,7 +10,20 @@ def get_data(url):
 
 # get_products_by_category_id_data buradan aldığım json verisini pandas dataframe'e çevirip csv olarak kaydedeceğim.
 def get_products_by_category_id_data_to_csv(json_data):
-    df = pd.DataFrame(json_data)
+    liste = []
+    for row in json_data:
+        p = {
+        "id": row["id"],
+        "name": row["name"],
+        "price": float(row["price"]),  # Convert Decimal to float
+        "status": row["status"],
+        "userId": row["userId"],
+        "sizes": row["sizes"],
+        "colors": row["colors"],
+        }
+        liste.append(p)
+    
+    df = pd.DataFrame(liste)
     df.to_csv('products.csv', index=False)
 
 

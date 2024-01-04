@@ -16,34 +16,19 @@ def get_quote():
     try :
         category = req["data"]["category"]
         is_deleted_datas = "true"
-        categorySProducts = get_products_by_category_id_data(category, is_deleted_datas)
-        json_data = []
-        for row in categorySProducts["data"]:
-            p = {
-                "id": row["id"],
-                "name": row["name"],
-                "price": float(row["price"]),  # Convert Decimal to float
-                "status": row["status"],
-                "userId": row["userId"],
-                "sizes": row["sizes"],
-                "colors": row["colors"],
-            }
-            json_data.append(p)
-
-        df = pd.DataFrame(json_data)
-        df.to_csv('data.csv', index=False)
-
+        get_products_by_category_id_data(category, is_deleted_datas)
         user_input = {
             'status': req["data"]["status"],
         }
         res = {
             "message": "Ürünler fiyat önerisi başarılı bir şekilde getirildi.",
             "status": 200,
-            "data": fiyat_tahmini(user_input)
+            "data":{ "min" : fiyat_tahmini(user_input)[0].round(2)
+                    , "max" : fiyat_tahmini(user_input)[1].round(2)
+            }
         }
         
-    except Exception as e:
-        print(e)
+    except Exception:
         res = {
             "message": "Ürünler fiyat önerisi getirilirken bir hata oluştu.",
             "status": 400,
