@@ -2,6 +2,13 @@
 
 This project creates a machine learning model to help users predict the prices of products.
 
+## You can use the links below for the Frontend and Backend part of the DailyShop 2nd Hand E-Commerce Site.
+### Frontend of the project
+- [React-DailyShop](https://github.com/Mstfucrr/React-DailyShop)
+
+### Backend of the Project
+- [DailyShopProject-With-AspNetCore6ApiAndClassicArch-CQRS](https://github.com/osman28tr/DailyShopProject-With-AspNetCore6ApiAndClassicArch-CQRS)
+
 ## Scope of the Project
 
 This project creates a machine learning model to help users predict the prices of products.
