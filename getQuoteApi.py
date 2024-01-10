@@ -40,7 +40,7 @@ def get_quote():
     return response
 
 
-@app.route('test', methods=['GET'])
+@app.route('/test', methods=['GET'])
 def test():
     return "test"
 
