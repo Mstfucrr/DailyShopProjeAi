@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import pandas as pd
 
 from DataPull import get_products_by_category_id_data
 from ml import fiyat_tahmini
