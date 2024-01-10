@@ -39,6 +39,11 @@ def get_quote():
     response.headers.add('Access-Control-Allow-Credentials', 'true')
     return response
 
+
+@app.route('test', methods=['GET'])
+def test():
+    return "test"
+
 if __name__ == '__main__':
     app.run(debug=True)
 
