@@ -13,13 +13,8 @@ def get_products_by_category_id_data_to_csv(json_data):
     liste = []
     for row in json_data:
         p = {
-        "id": row["id"],
-        "name": row["name"],
         "price": float(row["price"]),  # Convert Decimal to float
         "status": row["status"],
-        "userId": row["userId"],
-        "sizes": row["sizes"],
-        "colors": row["colors"],
         }
         liste.append(p)
     
