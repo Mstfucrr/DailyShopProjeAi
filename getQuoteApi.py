@@ -18,11 +18,12 @@ def get_quote():
         user_input = {
             'status': req["data"]["status"],
         }
+        min,max = fiyat_tahmini(user_input=user_input)
         res = {
             "message": "Ürünler fiyat önerisi başarılı bir şekilde getirildi.",
             "status": 200,
-            "data":{ "min" : fiyat_tahmini(user_input)[0].round(2)
-                    , "max" : fiyat_tahmini(user_input)[1].round(2)
+            "data":{ "min" : min.round(2)
+                    , "max" : max.round(2)
             }
         }
         

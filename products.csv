@@ -1,4 +1,8 @@
-id,name,price,status,userId,sizes,colors
-80,yeşil ,423444.0,renewed,3,[],[]
-82,mat ayakkabı ,123444.0,used,2,[],['black']
-85,Takım elbisem 1,3203.0,second-hand,2,['lg'],['black']
+price,status
+27000.0,new
+28000.0,new
+20398.0,new
+44000.0,new
+22899.0,new
+14000.0,new
+21599.0,bad
